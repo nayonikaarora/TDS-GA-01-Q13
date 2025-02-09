@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch the full history to avoid merge conflicts
 
       - name: Add a daily update file
         run: |
@@ -23,5 +25,6 @@ jobs:
         run: |
           git config --local user.email "24ds1000090@ds.study.iitm.ac.in"
           git config --local user.name "github-actions[bot]"
+          git pull --rebase origin main
           git commit -m "Daily update on $(date)" || exit 0
           git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
