@@ -23,8 +23,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --local user.email "24ds1000090@ds.study.iitm.ac.in"
-          git config --local user.name "github-actions[bot]"
-          git pull --rebase origin main
-          git commit -m "Daily update on $(date)" || exit 0
-          git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+           git config --local user.email "24ds1000090@ds.study.iitm.ac.in"
+           git config --local user.name "github-actions[bot]"
+           git pull origin main  # Merge the changes instead of rebasing
+           git commit -m "Daily update on $(date)" || exit 0
+           git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
