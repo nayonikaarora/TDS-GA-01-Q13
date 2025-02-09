@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0  # Fetch full history
 
-      - name: Create an empty commit (24ds1000090@ds.study.iitm.ac.in)
+      - name: 24ds1000090@ds.study.iitm.ac.in
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
